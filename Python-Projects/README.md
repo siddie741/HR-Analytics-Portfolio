@@ -1,2 +1,2 @@
-# R Projects
+# Python Projects
 This folder contains Python-based analytics projects focused on HR data.
