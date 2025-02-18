@@ -1,0 +1,30 @@
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+setwd("C:/Users/sidne/OneDrive/Documents/HR_Analytics_Projects")
+
+# Load Dataset
+hr_data <- read_csv("C:/Users/sidne/OneDrive/Documents/HR_Analytics_Projects/Data/HRDataset_v14.csv")
+
+
+# Explore the Data
+head(hr_data)      # View first rows
+str(hr_data)       # Check structure
+summary(hr_data)   # Summary statistics
+
+# Count employees by department
+department_counts <- hr_data %>%
+  group_by(Department) %>%
+  summarize(Employee_Count = n())
+
+# Create a bar chart using ggplot
+ggplot(department_counts, aes(x = Department, y = Employee_Count)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(title = "Number of Employees by Department",
+       x = "Department",
+       y = "Employee Count") +
+  theme_minimal()
+
+
+
